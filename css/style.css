@@ -1,19 +1,28 @@
+/* =========================
+   BARRA VERDE (HEADER)
+========================= */
 .top-green-bar {
   position: fixed;
-  top: 30px;           /* ENCOSTADA */
+  top: 30px;
   left: 0;
   width: 100%;
   height: 80px;
   background-color: #2f4f4f;
   z-index: 999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center; /* CENTRALIZA O MENU */
 }
 
-/* LOGO SOBREPOSTA */
+/* =========================
+   LOGO
+========================= */
 .logo {
   position: absolute;
   left: 150px;
-  top: -25px;      /* sobe para invadir a branca */
-  z-index: 1100;   /* maior que a branca */
+  top: -25px;
+  z-index: 1100;
 }
 
 .logo img {
@@ -23,133 +32,60 @@
   padding: 6px;
 }
 
-/* COMPENSA O CONTEÚDO */
+/* =========================
+   COMPENSA O HEADER FIXO
+========================= */
 body {
   padding-top: 120px;
 }
 
-/* botao inicio */
-
-.btn-inicio {
-  position: absolute;
-  right: -400px;
-  top: 24%;
-  height: 50px;
-  text-decoration: none;
-  color: white;
-  font-family: sans-serif;
+/* =========================
+   MENU (BOTÕES)
+========================= */
+.menu {
   display: flex;
   align-items: center;
+  gap: 50px; /* espaço entre os botões */
 }
 
-/* Criando a linha (inicialmente invisível/sem largura) */
-.btn-inicio::after {
-  content: "";
-  position: absolute;
-  bottom: 10px;    /* Ajuste aqui para aproximar ou afastar a linha do texto */
-  left: 0;
-  width: 0;        /* largura 0 para não aparecer por padrão */
-  height: 2px;
-  background-color: white;
-  transition: width 0.3s ease; /* Animação suave para a linha "crescer" */
-}
-
-/* Quando passar o mouse, a linha aparece */
-.btn-inicio:hover::after {
-  width: 40px;     /* Ou 100% se quiser que sublinhe o texto todo */
-}
-
-/* botao menu */
-
-.btn-menu {
-  position: absolute;
-  right: -500px;
-  top: 24%;
-  height: 50px;
-  text-decoration: none;
-  color: white;
-  font-family: sans-serif;
-  display: flex;
-  align-items: center;
-}
-
-/* Criando a linha (inicialmente invisível/sem largura) */
-.btn-menu::after {
-  content: "";
-  position: absolute;
-  bottom: 10px;    /* Ajuste aqui para aproximar ou afastar a linha do texto */
-  left: 0;
-  width: 0;        /* largura 0 para não aparecer por padrão */
-  height: 2px;
-  background-color: white;
-  transition: width 0.3s ease; /* Animação suave para a linha "crescer" */
-}
-
-/* Quando passar o mouse, a linha aparece */
-.btn-menu:hover::after {
-  width: 40px;     /* Ou 100% se quiser que sublinhe o texto todo */
-}
-
-
-/* botao sobre nos */
-
-.btn-sobre-nos {
-  position: absolute;
-  right: -640px;
-  top: 24%;
-  height: 50px;
-  text-decoration: none;
-  color: white;
-  font-family: sans-serif;
-  display: flex;
-  align-items: center;
-}
-
-/* Criando a linha (inicialmente invisível/sem largura) */
-.btn-sobre-nos::after {
-  content: "";
-  position: absolute;
-  bottom: 10px;    /* Ajuste aqui para aproximar ou afastar a linha do texto */
-  left: 0;
-  width: 0;        /* largura 0 para não aparecer por padrão */
-  height: 2px;
-  background-color: white;
-  transition: width 0.3s ease; /* Animação suave para a linha "crescer" */
-}
-
-/* Quando passar o mouse, a linha aparece */
-.btn-sobre-nos:hover::after {
-  width: 100%;     /* Ou 100% se quiser que sublinhe o texto todo */
-}
-
-/* botao contato */
-
-
+/* =========================
+   BOTÕES
+========================= */
+.btn-inicio,
+.btn-menu,
+.btn-sobre-nos,
 .btn-contato {
-  position: absolute;
-  right: -750px;
-  top: 24%;
+  position: relative; /* necessário para a linha */
   height: 50px;
+
   text-decoration: none;
   color: white;
   font-family: sans-serif;
+
   display: flex;
   align-items: center;
 }
 
-/* Criando a linha (inicialmente invisível/sem largura) */
+/* =========================
+   LINHA ANIMADA (HOVER)
+========================= */
+.btn-inicio::after,
+.btn-menu::after,
+.btn-sobre-nos::after,
 .btn-contato::after {
   content: "";
   position: absolute;
-  bottom: 10px;    /* Ajuste aqui para aproximar ou afastar a linha do texto */
+  bottom: 10px;
   left: 0;
-  width: 0;        /* largura 0 para não aparecer por padrão */
+  width: 0;
   height: 2px;
   background-color: white;
-  transition: width 0.3s ease; /* Animação suave para a linha "crescer" */
+  transition: width 0.3s ease;
 }
 
-/* Quando passar o mouse, a linha aparece */
+.btn-inicio:hover::after,
+.btn-menu:hover::after,
+.btn-sobre-nos:hover::after,
 .btn-contato:hover::after {
-  width: 100%;     /* Ou 100% se quiser que sublinhe o texto todo */
+  width: 100%;
 }
