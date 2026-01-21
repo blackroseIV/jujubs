@@ -1,0 +1,92 @@
+.top-green-bar {
+  position: fixed;
+  top: 30px;           /* ENCOSTADA */
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: #2f4f4f;
+  z-index: 999;
+}
+
+/* LOGO SOBREPOSTA */
+.logo {
+  position: absolute;
+  left: 300px;
+  top: -25px;      /* sobe para invadir a branca */
+  z-index: 1100;   /* maior que a branca */
+}
+
+.logo img {
+  width: 130px;
+  height: 129px;
+  border-radius: 50%;
+  padding: 6px;
+}
+
+/* COMPENSA O CONTEÚDO */
+body {
+  padding-top: 120px;
+}
+
+/* botao inicio */
+
+.btn-inicio {
+  position: absolute;
+  right: -300px;
+  top: 30%;
+  height: 50px;
+  text-decoration: none;
+  color: white;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+}
+
+/* Criando a linha (inicialmente invisível/sem largura) */
+.btn-inicio::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;    /* Ajuste aqui para aproximar ou afastar a linha do texto */
+  left: 0;
+  width: 0;        /* largura 0 para não aparecer por padrão */
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease; /* Animação suave para a linha "crescer" */
+}
+
+/* Quando passar o mouse, a linha aparece */
+.btn-inicio:hover::after {
+  width: 40px;     /* Ou 100% se quiser que sublinhe o texto todo */
+}
+
+/* botao menu */
+
+.btn-menu {
+  position: absolute;
+  right: -400px;
+  top: 30%;
+  height: 50px;
+  text-decoration: none;
+  color: white;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+}
+
+/* Criando a linha (inicialmente invisível/sem largura) */
+.btn-menu::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;    /* Ajuste aqui para aproximar ou afastar a linha do texto */
+  left: 0;
+  width: 0;        /* largura 0 para não aparecer por padrão */
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease; /* Animação suave para a linha "crescer" */
+}
+
+/* Quando passar o mouse, a linha aparece */
+.btn-menu:hover::after {
+  width: 40px;     /* Ou 100% se quiser que sublinhe o texto todo */
+}
+
