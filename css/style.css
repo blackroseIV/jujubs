@@ -1,5 +1,5 @@
 /* =========================
-   RESET BÁSICO
+   1. RESET E CONFIGURAÇÕES GERAIS
 ========================= */
 * {
   margin: 0;
@@ -7,8 +7,14 @@
   box-sizing: border-box;
 }
 
+body {
+  padding-top: 160px;
+  background-color: #F2F1E6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 /* =========================
-   BARRA VERDE (HEADER)
+   2. HEADER (BARRA E LOGO)
 ========================= */
 .top-green-bar {
   position: fixed;
@@ -18,68 +24,51 @@
   height: 100px;
   background-color: #2f4f4f;
   z-index: 999;
-
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: 260px; /* espaço REAL pra logo */
 }
 
-/* =========================
-   LOGO (sobreposta à faixa)
-========================= */
 .logo {
   position: absolute;
-  left: 80px;
+  left: 60px;
   top: -25px;
   z-index: 1100;
 }
 
 .logo img {
-  width: 170px;
+  width: 180px;
   height: 170px;
   border-radius: 50%;
   padding: 4px;
 }
 
 /* =========================
-   MENU (em linha reta)
+   3. MENU E BOTÕES
 ========================= */
 .menu {
   display: flex;
   align-items: center;
-  gap: 90px;          /* 👈 controla o espaçamento certo */
+  justify-content: center;
+  gap: 50px;
   height: 100%;
 }
 
-/* =========================
-   BOTÕES
-========================= */
-.btn-inicio,
-.btn-menu,
-.btn-sobre-nos,
-.btn-contato {
+.menu a {
   position: relative;
   height: 100%;
   display: flex;
   align-items: center;
-
   color: white;
   text-decoration: none;
-  font-family: sans-serif;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 500;
 }
 
-/* =========================
-   LINHA HOVER
-========================= */
-.btn-inicio::after,
-.btn-menu::after,
-.btn-sobre-nos::after,
-.btn-contato::after {
+.menu a::after {
   content: "";
   position: absolute;
-  bottom: 14px;
+  bottom: 25px;
   left: 0;
   width: 0;
   height: 2px;
@@ -87,54 +76,200 @@
   transition: width 0.3s ease;
 }
 
-.btn-inicio:hover::after,
-.btn-menu:hover::after,
-.btn-sobre-nos:hover::after,
-.btn-contato:hover::after {
+.menu a:hover::after {
   width: 100%;
 }
 
 /* =========================
-   COMPENSA HEADER FIXO
+   4. HERO / CARROSSEL
 ========================= */
-body {
-  padding-top: 160px;
+.hero-section {
+  display: flex;
+  height: 500px;
+  margin: 0px auto;
+  width: 75%;
+  position: relative;
+  align-items: center;
+  perspective: 1000px;
 }
 
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -50vw;
+  right: -50vw;
+  height: 420px;
+  background-color: #2f4f4f;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+.hero-item {
+  flex: 1;
+  height: 450px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid white;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 00.3s);
+  z-index: 1;
+}
+
+.hero-item:hover {
+  transform: scale(1.1) translateZ(50px) translateY(-15px);
+  z-index: 10;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  cursor: pointer;
+}
 
 /* =========================
-   MOBILE (continua em linha)
+   5. CARD CENTRAL (DESKTOP)
+========================= */
+.content {
+  text-align: center;
+  color: white;
+  /* Fundo escuro sutil para contraste sem embaçar */
+  background: rgba(0, 0, 0, 0.11); 
+  backdrop-filter: none; /* Removido o blur para ver a foto nítida */
+  -webkit-backdrop-filter: none;
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 90%;
+  z-index: 2;
+}
+
+.content h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.btn-navegar-menu {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 30px;
+  background-color: #f5f5dc;
+  color: #2f4f4f;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.btn-navegar-menu:hover {
+  background-color: #fff;
+  transform: scale(1.05);
+}
+
+/* =========================
+   6. RESPONSIVIDADE (CELULAR)
 ========================= */
 @media (max-width: 768px) {
 
+  body {
+    padding-top: 100px;
+  }
+
   .top-green-bar {
-    top: -25;
-    height: 50px;
-    padding-left: 120px; /* logo menor */
+    top: 0;
+    height: 70px;
   }
 
   .logo {
-    left: 20px;
-    top: -15px;
+    left: 10px;
+    top: -5px;
   }
 
   .logo img {
     width: 85px;
-    height: 85px;
+    height: 80px;
   }
 
   .menu {
-    gap: 20px;
+    gap: 12px;
+    margin-left: 65px;
   }
 
-  .btn-inicio,
-  .btn-menu,
-  .btn-sobre-nos,
-  .btn-contato {
-    font-size: 12px;
+  .menu a {
+    font-size: 11px;
   }
 
-  body {
-    padding-top: 100px;
+  /* HERO MOBILE */
+  .hero-section {
+    width: 100%;       
+    height: 200px;     
+    gap: 5px;          
+    margin: 20px auto; /* Margem positiva para não bater no menu ao pular */
+    padding: 0 5px;
+    overflow: visible; /* Garante que a imagem pule sem sumir no topo */
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-section::before {
+    height: 150px;     
+    left: -50vw;
+    right: -50vw;
+  }
+
+  .hero-item {
+    flex: 1;           
+    height: 180px;     
+    border-width: 2px;
+    border-radius: 4px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s ease; 
+  }
+
+  /* EFEITO DE SALTO NO MOBILE */
+  .hero-item:active, .hero-item:hover {
+    transform: scale(1.1) translateY(-15px);
+    z-index: 10;
+  }
+
+  .hero-item:nth-child(2) {
+    flex: 2; 
+    z-index: 5;
+  }
+
+  /* CARD CENTRAL MOBILE - NÍTIDO */
+  .content {
+    width: 95%;        
+    padding: 10px 5px;
+    background: rgba(0, 0, 0, 0.11); /* Transparência sem desfoque */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-radius: 6px;
+    border: none;
+    pointer-events: none; /* Permite que o clique pegue na imagem para animar */
+  }
+
+  .content h2 {
+    font-size: 13px;   
+    line-height: 1.2;
+    margin-bottom: 5px;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+  }
+
+  .content p {
+    display: none; 
+  }
+
+  .btn-navegar-menu {
+    pointer-events: auto; /* Reativa o clique apenas no botão */
+    margin-top: 5px;
+    padding: 6px 15px;
+    font-size: 11px;   
+    border-radius: 20px;
+    background-color: #f5f5dc;
+    color: #2f4f4f;
   }
 }
