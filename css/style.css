@@ -179,21 +179,21 @@ body {
 
   /* HEADER MOBILE */
   .top-green-bar {
-    top: 0;
-    height: 75px;
+    top: -5;
+    height: 45px;
     justify-content: center;
     padding: 0 10px;
   }
 
   .logo {
     left: 10px;
-    top: 50%;
+    top: 60%;
     transform: translateY(-50%);
   }
 
   .logo img {
-    width: 55px;
-    height: 55px;
+    width: 80px;
+    height: 80px;
   }
 
   /* MENU MOBILE */
